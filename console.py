@@ -128,7 +128,7 @@ based or not on the class name"""
                 list.append(value.__str__())
         print(list)
 
-    def do_update(sefl, args):
+    def do_update(self, args):
         """Updates an instance based on the class name and id
 by adding or updating attribute"""
         if not args:
@@ -141,7 +141,7 @@ by adding or updating attribute"""
             return
 
         class_name = args_list[0].strip()
-        if class_name not in classes_list:
+        if class_name not in self.classes_list:
             print('** class doesn\'t exist **')
             return
 
