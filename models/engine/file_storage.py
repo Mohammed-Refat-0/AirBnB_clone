@@ -48,7 +48,7 @@ class FileStorage:
                     class_name = J["__class__"]
                     del J["__class__"]
                     new_obj = eval(class_name)(**J)
-                    self.nsew(new_obj)
+                    self.new(new_obj)
         else:
 
             pass
