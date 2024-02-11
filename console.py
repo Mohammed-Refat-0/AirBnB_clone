@@ -42,7 +42,7 @@ class HBNBCommand(cmd.Cmd):
             return
         argsl = args.split()
         class_name = argsl[0].strip()
-        if class_name not in classes_list:
+        if class_name not in self.classes_list:
             print('** class doesn\'t exist **')
             return
         new_insstance = eval(class_name)()
@@ -62,7 +62,7 @@ an instance based on the class name and id"""
             return
 
         class_name = args_list[0].strip()
-        if class_name not in classes_list:
+        if class_name not in self.classes_list:
             print('** class doesn\'t exist **')
             return
 
@@ -90,7 +90,7 @@ an instance based on the class name and id"""
             return
 
         class_name = args_list[0].strip()
-        if class_name not in classes_list:
+        if class_name not in self.classes_list:
             print('** class doesn\'t exist **')
             return
 
@@ -120,7 +120,7 @@ based or not on the class name"""
             return
         argsl = args.split()
         class_name = argsl[0].strip()
-        if class_name not in classes_list:
+        if class_name not in self.classes_list:
             print('** class doesn\'t exist **')
             return
         for key, value in objs.items():
