@@ -32,11 +32,11 @@ class FileStorage:
             with open(self.__file_path, 'r') as FILE:
 
                 json_to_instance_dict = json.load(FILE)
-                for I, J in json_to_instance_dict.items():
+                for key, J in json_to_instance_dict.items():
                     class_name = J["__class__"]
                     del J["__class__"]
                     new_obj = eval(class_name)(**J)
-                    self.new(new_obj)
+                    self.nsew(new_obj)
         else:
 
             pass
