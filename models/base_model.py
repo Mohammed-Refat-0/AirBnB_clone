@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+""" defines the class "BaseModel"""
 
 import models
 import datetime
@@ -6,12 +7,23 @@ import uuid
 
 
 class BaseModel:
+    """BaseModel, From which all other classes inherit from in this project
+    Attributes:
+        id (string): The id of the object
+        created_at (datetime): The date and time when the object was created
+        updated_at (datetime): The datetime object for when it was last updated
+    """
 
     id = None
     created_at = None
     updated_at = None
 
     def __init__(self, **kwargs):
+        """constructor for the class
+        Args:
+            **kwargs (dict, optional): contain the attributes name and values
+            to initialize or update the instance
+        """
 
         if len(kwargs) != 0:
             for key, value in kwargs.items():
@@ -30,6 +42,10 @@ class BaseModel:
             models.storage.new(self)
 
     def __str__(self):
+        """defines the __str__ method (print()) of the object
+        Returns:
+            __str__ representation of the object
+        """
 
         return '[{}] ({}) {}'.format(self.__class__.__name__,
                                      self.id, self.__dict__)
@@ -39,6 +55,12 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
+        """transform the class attributes
+        to a dictionary representation of the object
+
+        Returns:
+            object_dict: dictionary representation of the object
+        """
         object_dict = self.__dict__.copy()
         object_dict['__class__'] = self.__class__.__name__
         object_dict['created_at'] = object_dict['created_at'].isoformat()

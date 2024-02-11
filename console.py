@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" defines the console of AirBnb clone (CLI)"""
+
 import cmd
 from models import storage
 from models.base_model import BaseModel
@@ -10,11 +12,11 @@ from models.amenity import Amenity
 from models.review import Review
 
 
-classes_list = ['BaseModel', 'User', 'State',
-                'City', 'Place', 'Amenity', 'Review']
-
-
 class HBNBCommand(cmd.Cmd):
+    """implementation of the class cmd to define required commands"""
+
+    classes_list = ['BaseModel', 'User', 'State',
+                    'City', 'Place', 'Amenity', 'Review']
 
     prompt = '(hbnb) '
 
